@@ -97,6 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6601ab1f6fce24443ade570a9028322f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathClip: {fileID: 8300000, guid: b01e40d6eebc57a479a2b97c197b25de, type: 3}
+  emptyAmmoClip: {fileID: 8300000, guid: 608ec5c4a79ebd14e8521e21f5ee8ff4, type: 3}
   speed: 0.06
   bulletPrefab: {fileID: 7098697440572394889, guid: 18a0289862289fd49a1e1fd4e5c58a3f,
     type: 3}

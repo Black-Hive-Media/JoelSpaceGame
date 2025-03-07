@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public AudioClip deathClip;
+    public AudioClip emptyAmmoClip;
+
     bool isAlive = true;
     public float speed = 5.5f;
     public GameObject bulletPrefab;
@@ -46,11 +49,17 @@ public class PlayerMovement : MonoBehaviour
 
     void ShootBullet()
     {
-        if(bulletCount > 0)
+        if (bulletCount > 0)
         {
             bulletCount--;
             GameObject.Instantiate(bulletPrefab, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
             UpdateBulletText();
+        }
+        else
+        {
+            //out of ammo
+            GetComponent<AudioSource>().clip = emptyAmmoClip;
+            GetComponent<AudioSource>().Play();
         }
 
     }
@@ -69,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
     public void PlayDeath()
     {
         isAlive = false;
+        GetComponent<AudioSource>().clip = deathClip;
         GetComponent<AudioSource>().Play();
         GetComponent<ParticleSystem>().Play();
         GetComponent<SpriteRenderer>().enabled = false;
